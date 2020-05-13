@@ -9,7 +9,7 @@ class _FXFavorScreenState extends State<FXFavorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("收藏"),),
+      appBar: AppBar(title: Text("我的收藏"),),
     );
   }
 }

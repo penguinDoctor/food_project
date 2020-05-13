@@ -19,17 +19,21 @@ class _FXMainScreenState extends State<FXMainScreen> {
         children: <Widget>[FXHomeScreen(), FXFavorScreen()],
         index: this.currentIndex,
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), title: Text("收藏")),
-      ],onTap:(idx){
-        setState(() {
-          this.currentIndex = idx;
-        });
-
-      },
-      currentIndex: this.currentIndex,),
-
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("首页")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), title: Text("收藏")),
+        ],
+        onTap: (idx) {
+          setState(() {
+            this.currentIndex = idx;
+          });
+        },
+        currentIndex: this.currentIndex,
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+      ),
     );
   }
 }
