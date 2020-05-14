@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:favorcate/Core/model/detail.dart';
-
+import 'package:favorcate/UI/pages/detail/meal_detail.dart';
 class FXMealClickScreen extends StatelessWidget {
   static const String routeName = "/detais";
 
@@ -11,9 +11,7 @@ class FXMealClickScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(model.title),
       ),
-      body: Center(
-        child: Text(model.title),
-      ),
+      body:FXMealDetailPage(model)
     );
   }
 }
