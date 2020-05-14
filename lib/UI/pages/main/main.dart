@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:favorcate/UI/pages/favor/favor.dart';
 import 'package:favorcate/UI/pages/home/home.dart';
-
+import 'package:favorcate/UI/pages/home/home_setting.dart';
 class FXMainScreen extends StatefulWidget {
   static final String MainPage = "/";
 
@@ -34,6 +34,8 @@ class _FXMainScreenState extends State<FXMainScreen> {
         selectedFontSize: 14,
         unselectedFontSize: 14,
       ),
+      drawer: FXHomeSettingPage(),
+
     );
   }
 }

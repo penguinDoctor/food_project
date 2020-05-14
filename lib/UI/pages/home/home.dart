@@ -8,21 +8,17 @@ class FXHomeScreen extends StatefulWidget {
 }
 
 class _FXHomeScreenState extends State<FXHomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("美食广场"),
-        leading: Builder(builder: (ctx){
-          return IconButton(icon: Icon(Icons.settings), onPressed: (){
-            Scaffold.of(ctx).openDrawer();
-          });
-        }),
-      ),
+          title: Text("美食广场"),
+          leading: IconButton(
+              icon: Icon(Icons.build),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              })),
       body: FXHomeContent(),
-      drawer: FXHomeSettingPage()
     );
   }
 }
-
