@@ -70,7 +70,7 @@ class FXDetailScreen extends StatelessWidget {
               final iconData = favorVM.isFavor(model)?Icons.favorite:Icons.favorite_border;
               final color = favorVM.isFavor(model)?Colors.red:Colors.black;
               final text = favorVM.isFavor(model)? "已收藏":"未收藏";
-              return GestureDetector(child: FXOperationItem(Icon(iconData,color: color,),text),
+              return GestureDetector(child: FXOperationItem(Icon(iconData,color: color,),text,color: color,),
               onTap: (){
                 favorVM.handleData(model);
               },);

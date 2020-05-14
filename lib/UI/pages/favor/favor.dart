@@ -12,13 +12,21 @@ class _FXFavorScreenState extends State<FXFavorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("我的收藏"),),
-      body: Consumer<FXFavorViewModel>(builder: (ctx,favorVM,child){
-
-        return ListView.builder(itemBuilder: (ctx,index){
-          return FXDetailScreen(favorVM.meals[index]);
-        },
-        itemCount: favorVM.meals.length,);
+      appBar: AppBar(
+        title: Text("我的收藏"),
+      ),
+      body: Consumer<FXFavorViewModel>(builder: (ctx, favorVM, child) {
+        if (favorVM.meals.length == 0) {
+          return Center(
+            child: Text("还未收藏哦~"),
+          );
+        }
+        return ListView.builder(
+          itemBuilder: (ctx, index) {
+            return FXDetailScreen(favorVM.meals[index]);
+          },
+          itemCount: favorVM.meals.length,
+        );
       }),
     );
   }
