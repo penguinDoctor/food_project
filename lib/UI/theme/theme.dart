@@ -16,8 +16,9 @@ class FXAppTheme {
           display1: TextStyle(fontSize: smallFontSize,),
           display2: TextStyle(fontSize: normalFontSize,),
           display3: TextStyle(fontSize: largeFontSize,color: Colors.white)),
-      canvasColor: Color.fromRGBO(254, 255, 222, 1));
-
+      canvasColor: Color.fromRGBO(254, 255, 222, 1),
+       accentColor: Colors.amberAccent
+  );
   static final ThemeData darkTheme = ThemeData(
       primarySwatch: Colors.grey,
       textTheme: TextTheme(

@@ -49,7 +49,7 @@ class FXMealDetailPage extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
-              color: Colors.amberAccent,
+              color: Theme.of(context).accentColor,
               child: Padding(
                 child: Text(model.ingredients[index]),
                 padding: EdgeInsets.symmetric(horizontal: 8),
@@ -73,8 +73,13 @@ class FXMealDetailPage extends StatelessWidget {
         child: ListView.separated(
           itemBuilder: (ctx, index) {
             return ListTile(
-              leading: Text("# ${index}"),
-              title: Text(model.steps[index]),
+              leading:CircleAvatar(
+                child: Text("#${index}"),
+                backgroundColor: Colors.pink,
+              ),
+              title: Text(model.steps[index],style: Theme.of(context).textTheme.body1.copyWith(
+                fontWeight: FontWeight.bold
+              ),),
             );
           },
           separatorBuilder: (ctx, index) {
@@ -92,7 +97,7 @@ class FXMealDetailPage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(8)),
-      width: MediaQuery.of(context).size.width - 30,
+      width: MediaQuery.of(context).size.width - 32,
       child: child,
     );
   }

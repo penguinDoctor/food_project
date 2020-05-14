@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:favorcate/Core/model/detail.dart';
 import 'operation_item.dart';
 import 'package:favorcate/UI/pages/meal/meal_detail.dart';
+import 'package:provider/provider.dart';
+import 'package:favorcate/Core/viewmodel/meal_favor_model.dart';
+
 class FXDetailScreen extends StatelessWidget {
   final FxDetailModel model;
 
@@ -62,7 +65,17 @@ class FXDetailScreen extends StatelessWidget {
         children: <Widget>[
           FXOperationItem(Icon(Icons.schedule), "${model.duration}min"),
           FXOperationItem(Icon(Icons.restaurant), "${model.complexStr}"),
-          FXOperationItem(Icon(Icons.favorite), "未收藏")
+          Consumer<FXFavorViewModel>(
+            builder: (ctx,favorVM,child){
+              final iconData = favorVM.isFavor(model)?Icons.favorite:Icons.favorite_border;
+              final color = favorVM.isFavor(model)?Colors.red:Colors.black;
+              final text = favorVM.isFavor(model)? "已收藏":"未收藏";
+              return GestureDetector(child: FXOperationItem(Icon(iconData,color: color,),text),
+              onTap: (){
+                favorVM.handleData(model);
+              },);
+            },
+          )
         ],
       ),
     );
