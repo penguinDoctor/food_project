@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:favorcate/UI/pages/filter/filter.dart';
 
 class FXHomeSettingPage extends StatelessWidget {
   @override
@@ -15,7 +16,8 @@ class FXHomeSettingPage extends StatelessWidget {
                 Navigator.of(context).pop();
               }),
               settingBodyWidget(Icon(Icons.settings), "过滤", (){
-
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed(FXFilterPage.routeName);
               })
             ],
           ),

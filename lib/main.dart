@@ -4,6 +4,7 @@ import 'Core/router/route.dart';
 import 'package:provider/provider.dart';
 import 'Core/viewmodel/meal_detail_view_model.dart';
 import 'Core/viewmodel/meal_favor_model.dart';
+import 'Core/viewmodel/filter_view_model.dart';
 main() {
 //  runApp(ChangeNotifierProvider(
 //    create: (ctx) => FXMealDetailViewModel(),
@@ -11,12 +12,30 @@ main() {
 //  ));
 
 runApp(MultiProvider(providers: [
-   ChangeNotifierProvider(
-     create: (ctx)=>FXMealDetailViewModel(),
-   ),
   ChangeNotifierProvider(
+    create: (ctx)=> FXFilterViewModel(),
+  ),
+   ChangeNotifierProxyProvider<FXFilterViewModel,FXMealDetailViewModel>(
+     create: (ctx)=>FXMealDetailViewModel(),
+     update: (ctx,filterViewModel,mealDetailModel){
+       mealDetailModel.updateFilterViewModel(filterViewModel);
+       return mealDetailModel;
+     },
+   ),
+//   ChangeNotifierProvider(
+//     create: (ctx)=>FXMealDetailViewModel(),
+//   ),
+  ChangeNotifierProxyProvider<FXFilterViewModel,FXFavorViewModel>(
     create: (ctx)=>FXFavorViewModel(),
-  )
+    update: (ctx,filterViewModel,favorModel){
+      favorModel.updateViewModel(filterViewModel);
+      return favorModel;
+    },
+  ),
+//  ChangeNotifierProvider(
+//    create: (ctx)=>FXFavorViewModel(),
+//  ),
+
 ],
 child: MyApp(),));
 }

@@ -13,9 +13,9 @@ class FXAppTheme {
       primarySwatch: Colors.pink,
       textTheme: TextTheme(
           body1: TextStyle(fontSize: normalFontSize, color: norTextColor),
-          display1: TextStyle(fontSize: smallFontSize,),
-          display2: TextStyle(fontSize: normalFontSize,),
-          display3: TextStyle(fontSize: largeFontSize,color: Colors.white)),
+          display1: TextStyle(fontSize: smallFontSize,color: Colors.black87),
+          display2: TextStyle(fontSize: normalFontSize,color: Colors.black87),
+          display3: TextStyle(fontSize: largeFontSize,color: Colors.black87)),
       canvasColor: Color.fromRGBO(254, 255, 222, 1),
        accentColor: Colors.amberAccent
   );
